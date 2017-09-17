@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style>
+        .colorBlock{
+            background-color: #ff6700;
+            width: 50px;
+            height: 50px;
+            margin-top: 25px;
+        }
+        .miLogo{
+           margin-top: -15px;
+            margin-left: -10px;
+        }
+        h2{
+            margin-left: 53px;
+            margin-top: -50px;
+        }
+        .beizhu{
+            font-size: 12px;
+            margin-left: 70px;
+            margin-top: -10px;
+        }
+        #haibao{
+            margin-top: 20px;
+        }
+        .colorBlock1{
+            height: 450px;
+            width: 350px;
+            background-color: white;
+            margin-top: -475px;
+        }
+        a:hover{
+           text-decoration: none;
+            background-color: white;
+        }
+
+
+    </style>
+    <script src="jquery/jquery.js"></script>
+    <script src="../app/js/dfrz-store.js"></script>
+    <script src="md5.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+   <div class="container">
+       <div class="colorBlock">
+           <a class="navbar-brand miLogo" href="#">
+               <img src="image/mi-logo.png" alt="" style="margin-left: -2px">
+           </a>
+       </div>
+       <h2>小米商城</h2>
+       <p class="beizhu">让每个人都能享受到科技的乐趣</p>
+   </div>
+   <div class="container-fluid" id="haibao">
+       <div class="row">
+           <img src="image/大图.jpg" alt="" width="100%" height="500px">
+           <div class="col-lg-offset-4 col-lg-5">
+                <div class="colorBlock1">
+                    <div>
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist" >
+                            <li style="width: 175px" role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><h3>账号登录</h3></a></li>
+                            <li style="width: 175px" role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h3>扫码登录</h3></a></li>
+
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                <form action="#">
+                                    <br>
+                                    <input id="dianHua" type="text"placeholder="邮箱/手机号码/小米账号" style="height: 50px;width: 300px;margin-left: 25px">
+                                    <input id="mi-Ma" type="password"placeholder="密码" style="height: 50px;width: 300px;margin-left: 25px;margin-top: 20px">
+                                    <button id="btnLogin" type="button" style="height: 50px;width: 300px;margin-left: 25px;margin-top: 20px;background-color: #ff6700;border: 2px solid #ff6700">
+                                        <a  style="background-color:  #ff6700;" href="../xiaoMiWangZhanShouYe/小米网站练习登录之后.html">立即登录</a>
+                                    </button>
+                                </form>
+                                <div style="margin-top: 20px">
+                                <a style="margin-left: 80px" href="#">注册小米账号</a> <span>|</span> <a href="#">忘记密码</a>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <ul style="list-style: none;margin-left: -12px">
+                                        <li style="border-top: 1px solid black;width: 100px;display: inline-block"></li>
+                                        <li style="display: inline-block"><p>其他方式登录</p></li>
+                                        <li style="border-top: 1px solid black;width: 100px;display: inline-block"></li>
+                                    </ul>
+                                    <ul style="list-style: none;display: flex;justify-content: space-around;margin-left: -30px;margin-top: -15px">
+                                        <li style="display: inline-block"><img src="image/qq.png" alt="" height="30px" width="30px"></li>
+                                        <li style="display: inline-block"><img src="image/新浪微博.png" alt="" height="30px" width="30px"></li>
+                                        <li style="display: inline-block"><img src="image/微信.png" alt="" height="30px" width="30px"></li>
+                                        <li style="display: inline-block" ><img src="image/支付宝.png" alt="" height="30px" width="30px"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <img src="image/下载.png" alt="" class="center-block" style="margin-top: 50px">
+                                <br>
+                                <p class="text-center">使用<span style="color: #ff6700">小米商城APP</span>扫一扫</p>
+                                <p style="margin-top: -10px" class="text-center">请打开「设置 > 小米帐号 > 右上角扫一扫」扫码登录</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+           </div>
+       </div>
+   </div>
+</body>
+<script type="text/javascript">
+   /* $('#btnLogin').on('click',function () {
+        var ACCOUNT_KEY='accounts';
+        var accounts=store.get(ACCOUNT_KEY,[]);
+        console.log(accounts);
+        for(var i=0,len=accounts.length;i<len;i++){
+            var userID=accounts[i].userID;
+            var password=accounts[i].password;
+            if(!zuserID(userID,password)){
+                continue;
+            }
+            else {
+                var ACCOUNT_KEY2 = 'login';
+                var login=true;
+                store.update(ACCOUNT_KEY2,login);
+                var ACCOUNT_KEY3 = 'loginUser';
+                var loginUser=userID;
+                store.update(ACCOUNT_KEY3,loginUser);
+                console.log(loginUser);
+                $('#logSuccess').show();
+                setTimeout('$("#logSuccess").hide()',3000);
+                window.location.href="../account/XMSC.html";
+            }
+        }
+
+        return false;
+    });*/
+
+
+</script>
+</html>

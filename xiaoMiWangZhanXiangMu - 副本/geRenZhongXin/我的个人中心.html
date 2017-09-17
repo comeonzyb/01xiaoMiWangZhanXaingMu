@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+</head>
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+<style>
+    body{
+        background-color: rgb(240,240,240);
+        overflow-x: hidden;
+    }
+    .borderLeft{
+        border-left: 1px solid #c0c0c0;
+        position: absolute;
+        left: 3px;
+        top: 15px;
+        height: 20px;
+    }
+    .cart{
+        width: 500px;max-height: 300px; overflow-y: auto;
+    }
+    .colorBlock{
+        background-color: #ff6700;
+        width: 50px;
+        height: 50px;
+    }
+    .miLogo{
+        margin-top: -12px;
+    }
+    .secondDaoHang{
+        margin-left: 120px ;
+    }
+    .menuFont{
+        color: #fff;
+        border: 0px solid  rgba(0,0,0,0.6);
+        background-color: black;
+        width: 200px;
+        margin-left: -18px;
+
+
+    }
+    ul{
+        list-style: none;
+        margin-left: -30px;
+    }
+
+    .suoLueTu1{
+        height: 150px;
+        background-color:#5f5750 ;
+        color: gold;
+        text-align: center;
+    }
+    .suoLueTu2{
+        height: 150px;
+        background-color: #2a2a2a;
+
+    }
+    .suoLueTu{
+        margin-top: -20px;
+        color: white;
+        text-align: center;
+    }
+    .listGroupMenu{
+        margin-top: 20px;
+        margin-left: 5px;
+
+    }
+    .jumu3{
+        margin-top: -22px;
+    }
+    .jiadianTab{
+        margin-top: -45px;
+    }
+    .bigJuMu{
+        margin-top: 18px;
+        margin-left: -8px
+    }
+    .menuSuoLueTu{
+        width: 590px;
+        height: 350px;
+        position: absolute;
+        left:170px;
+        top: -7px;
+    }
+    .grade1Menu{
+        width: 202px;
+        margin-left: -18px;
+        background-color: black;
+        border: 0px solid black;
+    }
+    .cartImage{
+        width: 100px;
+        height: 100px;
+    }
+    #geRenZhongXin li{
+        margin-left: 30px;
+    }
+    a:hover{
+        text-decoration: none;
+        color: black;
+    }
+    a{
+        color: #757575;
+    }
+
+</style>
+<script src="jquery/jquery.js"></script>
+<script src="bootstrap/dist/js/bootstrap.js"></script>
+<script>
+    $(function () {
+        /* $('[data-toggle=hover]').parent().on('mouseenter mouseleave',function () {
+             $(this).toggleClass('open');
+         });*/
+        /*$('[data-toggle=hover]').parent().hover(function () {
+          $(this).addClass('open');
+        },function () {
+          $(this).removeClass('open');
+        });*/
+        $('[data-toggle=hover]').parent().on('mouseenter mouseleave',function () {
+            $(this).toggleClass('open')
+        })
+        $('[data-toggle=hover1]').parent().on('mouseenter mouseleave',function () {
+            $(this).toggleClass('open')
+        })
+        $('[data-toggle=hover2]').parent().on('mouseenter mouseleave',function () {
+            $(this).toggleClass('open')
+        })
+    });
+    function load() {
+        var x="";
+        var time=new Date().getHours();
+        if (time<12)
+        {
+            x="早上好~";
+        }
+        else if(time<18){
+            x="下午好~";
+        }
+        else{
+            x="晚上好~";
+        }
+        document.getElementById("greeting").innerHTML=x;
+    }
+
+</script>
+<body  onload="load()">
+<!--导航栏1-->
+<nav class="navbar navbar-inverse">
+    <div class="container">
+        <ul class="nav navbar-nav">
+            <li><a href="#">小米商城</a></li>
+            <li><span class="borderLeft"></span></li>
+            <li><a href="#">MIUI</a></li>
+            <li><span class="borderLeft"></span></li>
+            <li><a href="#">米聊</a></li>
+            <li><span class="borderLeft"></span></li>
+            <li><a href="#">游戏</a></li>
+            <li><span class="borderLeft"></span></li>
+            <li><a href="#">多看阅读</a></li>
+        </ul>
+
+
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="hover2">绿卫 蝉<span class="glyphicon glyphicon-chevron-down"></span></a>
+                <ul class="dropdown-menu" id="geRenZhongXin">
+                    <li><a href="">个人中心</a></li>
+                    <li><a href="">评价晒单</a></li>
+                    <li><a href="">我的喜欢</a></li>
+                    <li><a href="../xiaoMiZhangHu/小米账号练习.html">小米账户</a></li>
+                    <li><a href="小米网站练习.html">退出登录</a></li>
+                </ul>
+            </li>
+            <li><span class="borderLeft"></span></li>
+            <li><a href="#">消息通知</a></li>
+            <li><span class="borderLeft"></span></li>
+            <li><a href="#">我的订单</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" href="#" data-toggle="hover"><span class="glyphicon glyphicon-shopping-cart"></span> 购物车(4)</a>
+                <ul class="dropdown-menu dropdown-menu-right cart">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>图片</th>
+                            <th>手机名称</th>
+                            <th>单价</th>
+                            <th>删除</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="col-lg-4">
+                                <img class="img-thumbnail cartImage" src="image/3.jpg" alt="">
+                            </td>
+                            <td class="col-lg-3">
+                                小米6
+                            </td>
+                            <td class="col-lg-3">
+                                2499
+                            </td>
+                            <td class="col-lg-2">
+                                <button type="button" name="del">&times</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-lg-4">
+                                <img class="img-thumbnail cartImage" src="image/2.jpg" alt="">
+                            </td>
+                            <td class="col-lg-3">
+                                红色硅胶保护套
+                            </td>
+                            <td class="col-lg-3">
+                                30
+                            </td>
+                            <td class="col-lg-2">
+                                <button type="button" name="del">&times</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-lg-4">
+                                <img class="img-thumbnail cartImage" src="image/3.jpg" alt="">
+                            </td>
+                            <td class="col-lg-3">
+                                小米6
+                            </td>
+                            <td class="col-lg-3">
+                                2499
+                            </td>
+                            <td class="col-lg-2">
+                                <button type="button" name="del">&times</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-lg-4">
+                                <img class="img-thumbnail cartImage" src="image/2.jpg" alt="">
+                            </td>
+                            <td class="col-lg-3">
+                                红色硅胶保护套
+                            </td>
+                            <td class="col-lg-3">
+                                30
+                            </td>
+                            <td class="col-lg-2">
+                                <button type="button" name="del">&times</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--导航栏2-->
+<nav class="navbar" style="background-color: white;height: 100px;margin-top: -18px">
+
+    <!--<nav class="navbar navbar-default"> -->
+    <div class="container" style="margin-top: 20px">
+        <div class="navbar-header">
+            <!-- <button class="navbar-toggle  collapsed" data-toggle="collapse" data-target="#navContent" >
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+                 <span class="icon-bar"></span>
+             </button>-->
+            <div class="colorBlock">
+                <a class="navbar-brand miLogo" href="#">
+                    <img src="image/mi-logo.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div id="navContent" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav secondDaoHang">
+                <li><a role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample" >小米手机</a></li>
+                <li><span class="borderLeft"></span></li>
+                <li><a  href="#">红米</a></li>
+                <li><span class="borderLeft"></span></li>
+                <li><a  href="#">平板*笔记本</a></li>
+                <li><span class="borderLeft"></span></li>
+                <li><a  href="#">电视</a></li>
+                <li><span class="borderLeft"></span></li>
+                <li><a  href="#">盒子</a></li>
+                <li><span class="borderLeft"></span></li>
+                <li><a  href="#">路由器</a></li>
+            </ul>
+
+            <form class="navbar-form navbar-right">
+                <div class="form-group">
+                    <div class="input-group input-group-lg">
+                        <input class="form-control" type="text">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+</nav>
+<div class="collapse" id="collapseExample1">
+    <div class="well">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2">
+                    <img src="image/3.jpg" alt="" style="height: 50%;width: 50%">
+                    <div style="margin-left:15px">
+                        <p>小米6</p>
+                        <p>2499元起</p>
+                    </div>
+                    <div style="border-left: 1px solid black;height: 70px;margin-left: 140px;margin-top:-130px"></div>
+                </div>
+                <div class="col-lg-2">
+                    <img src="image/3.jpg" alt="" style="height: 50%;width: 50%">
+                    <div style="margin-left:15px">
+                        <p>小米6</p>
+                        <p>2499元起</p>
+                    </div>
+                    <div style="border-left: 1px solid black;height: 70px;margin-left: 140px;margin-top:-130px"></div>
+                </div>
+                <div class="col-lg-2">
+                    <img src="image/3.jpg" alt="" style="height: 50%;width: 50%">
+                    <div style="margin-left:15px">
+                        <p>小米6</p>
+                        <p>2499元起</p>
+                    </div>
+                    <div style="border-left: 1px solid black;height: 70px;margin-left: 140px;margin-top:-130px"></div>
+                </div>
+                <div class="col-lg-2">
+                    <img src="image/3.jpg" alt="" style="height: 50%;width: 50%">
+                    <div style="margin-left:15px">
+                        <p>小米6</p>
+                        <p>2499元起</p>
+                    </div>
+                    <div style="border-left: 1px solid black;height: 70px;margin-left: 140px;margin-top:-130px"></div>
+                </div>
+                <div class="col-lg-2">
+                    <img src="image/3.jpg" alt="" style="height: 50%;width: 50%">
+                    <div style="margin-left:15px">
+                        <p>小米6</p>
+                        <p>2499元起</p>
+                    </div>
+                    <div style="border-left: 1px solid black;height: 70px;margin-left: 140px;margin-top:-130px"></div>
+                </div>
+                <div class="col-lg-2">
+                    <img src="image/3.jpg" alt="" style="height: 50%;width: 50%">
+                    <div style="margin-left:15px">
+                        <p>小米6</p>
+                        <p>2499元起</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--个人中心内容-->
+<ol class="breadcrumb" style="background-color: rgb(240,240,240);margin-top: -20px;margin-left: 100px">
+    <li><a href="../xiaoMiWangZhanShouYe/小米网站练习登录之后.html">首页</a></li>
+    <li><a href="#">个人中心</a></li>
+</ol>
+<div class="container" style="margin-top: -20px">
+    <div class="row">
+        <div class="col-lg-2">
+          <div style="width: 200px;height: 970px;background-color: white">
+             <div style="margin-left: 30px"><br><br>
+                 <h4>订单中心</h4>
+                 <ul style="line-height: 28px">
+                     <li><a href=""> 我的订单</a></li>
+                     <li><a href="">意外保</a></li>
+                     <li><a href=""> 团购订单</a></li>
+                     <li><a href="">评价晒单</a></li>
+                     <li><a href="">话费充值订单</a></li>
+                     <li><a href=""> 以旧换新订单</a></li>
+                 </ul>
+             </div>
+              <div style="margin-left: 30px"><br><br>
+                  <h4>个人中心</h4>
+                  <ul style="line-height: 28px">
+                      <li><a href=""> 我的个人中心</a></li>
+                      <li><a href=""> 消息通知</a></li>
+                      <li><a href=""> 购买资格</a></li>
+                      <li><a href=""> 现金账户</a></li>
+                      <li><a href="">小米礼品卡</a></li>
+                      <li><a href="">现金券</a></li>
+                      <li><a href=""> 喜欢的商品  </a></li>
+                      <li><a href="">优惠券 </a></li>
+                      <li><a href="../shouHuoDiZhi/account.html" target="_blank">  收货地址</a></li>
+                  </ul>
+              </div>
+              <div style="margin-left: 30px"><br><br>
+                  <h4>售后服务</h4>
+                  <ul style="line-height: 28px">
+                      <li><a href=""> 服务记录</a></li>
+                      <li><a href=""> 申请服务</a></li>
+                      <li><a href=""> 领取快递报销</a></li>
+                  </ul>
+              </div>
+              <div style="margin-left: 30px"><br><br>
+                  <h4> 账户管理</h4>
+                  <ul style="line-height: 28px">
+                      <li><a href="../xiaoMiZhangHu/小米账号练习.html" target="_blank" >个人信息</a></li>
+                      <li><a href="../xiaoMiZhangHu/小米账号练习.html" target="_blank" > 修改密码</a></li>
+                      <li><a href="">  社区VIP认证</a></li>
+                  </ul>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-10">
+            <div style="width: 920px;height: 650px;background-color: white;margin-left: 20px">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div style="height: 150px;width: 150px;border-radius: 50%;border: 1px solid black;margin-top: 60px;margin-left: 30px">
+                                <div class="center-block" style="margin-top: 4px;height: 140px;width: 140px;border-radius: 50%;border: 1px solid black;background-color: rgb(240,240,240)">
+                                    <img class="center-block" src="image/头像%20(2).png" alt="" height="140px" width="140px">
+                                </div>
+                            </div>
+                            <div style="margin-left:200px;margin-top: -130px">
+                                <h2>绿卫 蝉</h2>
+                                <p style="color: #757575" id="greeting"></p>
+                                <a href="../xiaoMiZhangHu/小米账号练习.html" style="color: #ff6700">修改个人信息></a>
+                            </div>
+                            <div style="border-top: 1px solid #CCCCCC;width: 820px;margin-top: 40px;margin-left: 30px"></div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div style="margin-top: 100px;margin-left: -50px">
+                                <p> 账户安全：较高</p>
+                                <p>绑定手机：158********35</p>
+                                <p>绑定邮箱：12*******6@q*.com</p>
+                            </div>
+                        </div>
+                        <div class="container row">
+                            <div class="col-lg-6">
+                                <img src="image/Ge01.png" alt="" style="margin-top: 50px;margin-left: 50px">
+                                <div style="line-height: 5px;margin-left: 160px;margin-top: -75px">
+                                    <h4> 待支付的订单：0</h4>
+                                    <a href="#">查看待支付订单></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="image/Ge02.png" alt="" style="margin-top: 50px;margin-left:-140px">
+                                <div style="line-height: 5px;margin-left:-27px;margin-top: -75px">
+                                    <h4> 待收货的订单：0</h4>
+                                    <a href="#">查看待收货订单></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container row" style="margin-top: 45px">
+                            <div class="col-lg-6">
+                                <img src="image/Ge03.png" alt="" style="margin-top: 50px;margin-left: 50px">
+                                <div style="line-height: 5px;margin-left: 160px;margin-top: -75px">
+                                    <h4> 待评价的订单：0</h4>
+                                    <a href="#">查看待评价订单></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="image/Ge04.png" alt="" style="margin-top: 50px;margin-left:-140px">
+                                <div style="line-height: 5px;margin-left:-27px;margin-top: -75px">
+                                    <h4> 喜欢的商品</h4>
+                                    <a href="#">查看喜欢的商品></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部服务栏目和版税说明栏目1-->
+<div class="container" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="text-center">
+                <h3> <img src="image/wxb工具.png" alt="" style="height: 15%;width: 15%">预约维修服务<span style="border-left: 1px solid black;margin-left: 60px"></span></h3>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="text-center">
+
+                <h3><img src="image/7.png" alt="" style="height: 15%;width: 15%">七天无理由退货<span style="border-left: 1px solid black;margin-left: 50px"></span></h3>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="text-center">
+                <h3> <img src="image/15.png" alt="" style="height: 15%;width: 15%">15天免费换货<span style="border-left: 1px solid black;margin-left: 60px"></span></h3>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="text-center">
+                <h3>  <img src="image/map.png" alt="" style="height: 15%;width: 15%">520余家售后网点</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" style="border-top: 1px solid black;width:1100px;margin-top: 10px"></div>
+<!--底部服务栏目和版税说明栏目2-->
+<div class="container" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="container-fluid text-center">
+                <div class="row">
+                    <div class="col-lg-2"><h3>帮助中心</h3></div>
+                    <div class="col-lg-2"><h3>服务支持</h3></div>
+                    <div class="col-lg-2"><h3>线下门店</h3></div>
+                    <div class="col-lg-2"><h3>关于小米</h3></div>
+                    <div class="col-lg-2"><h3>关注我们</h3></div>
+                    <div class="col-lg-2"><h3>特色服务</h3></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2"><p>帮助中心</p></div>
+                    <div class="col-lg-2"><p>服务支持</p></div>
+                    <div class="col-lg-2"><p>线下门店</p></div>
+                    <div class="col-lg-2"><p>关于小米</p></div>
+                    <div class="col-lg-2"><p>关注我们</p></div>
+                    <div class="col-lg-2"><p>特色服务</p></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2"><p>帮助中心</p></div>
+                    <div class="col-lg-2"><p>服务支持</p></div>
+                    <div class="col-lg-2"><p>线下门店</p></div>
+                    <div class="col-lg-2"><p>关于小米</p></div>
+                    <div class="col-lg-2"><p>关注我们</p></div>
+                    <div class="col-lg-2"><p>特色服务</p></div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-2"><p>帮助中心</p></div>
+                    <div class="col-lg-2"><p>服务支持</p></div>
+                    <div class="col-lg-2"><p>线下门店</p></div>
+                    <div class="col-lg-2"><p>关于小米</p></div>
+                    <div class="col-lg-2"><p>关注我们</p></div>
+                    <div class="col-lg-2"><p>特色服务</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-1 text-center" style="border-left: 1px solid black;height: 100px; margin-top: 25px">
+
+        </div>
+        <div class="col-lg-2 text-center" style="margin-top: 28px">
+
+            <h4>400-100-5687</h4>
+            <button class="btn btn-warning" style="border: 1px solid gold">24小时在线服务</button>
+        </div>
+    </div>
+</div>
+<!--底部服务栏目和版税说明栏目3-->
+<div class="container" style="margin-top: 30px">
+    <div class="row">
+        <div class="col-lg-7">
+
+            <nav class="navbar navbar-inverse" style="background-color: white;border: 0px solid white;margin-left: 30px">
+                <div class="container">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div class="colorBlock">
+                                <a class="navbar-brand miLogo" href="#">
+                                    <img src="image/mi-logo.png" alt="" style="margin-left: -2px">
+                                </a>
+                            </div>
+                        </li>
+                        <li><a href="#">小米商城</a></li>
+                        <li><span class="borderLeft"></span></li>
+                        <li><a href="#">MIUI</a></li>
+                        <li><span class="borderLeft"></span></li>
+                        <li><a href="#">米聊</a></li>
+                        <li><span class="borderLeft"></span></li>
+                        <li><a href="#">游戏</a></li>
+                        <li><span class="borderLeft"></span></li>
+                        <li><a href="#">多看阅读</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="col-lg-5">
+            <div class="col-lg-4"><p><img src="image/信.png" alt="" style="height: 20%;width: 20%">诚信网站示范企业</p></div>
+            <div class="col-lg-4"><p><img src="image/信.png" alt="" style="height: 20%;width: 20%">诚信网站示范企业</p></div>
+            <div class="col-lg-4"><p><img src="image/信.png" alt="" style="height: 20%;width: 20%">诚信网站示范企业</p></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

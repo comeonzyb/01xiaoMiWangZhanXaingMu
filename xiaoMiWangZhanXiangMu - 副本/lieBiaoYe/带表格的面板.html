@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工客户端查询</title>
+  <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <script src="jquery/jquery.js"></script>
+  <script src="bootstrap/dist/js/bootstrap.js"></script>
+  <script src="czb-confirm.js"></script>
+    <script>
+       /* 搜索筛选*/
+        $(function () {
+         $('#search').on('keyup',function () {
+             //this.value;
+             var selector = '';
+             selector = ':contains('+ $(this).val() +')';
+             $('tbody tr').hide();
+             $('tbody tr').filter(selector).show();
+         });
+     })
+       /* 工具提示*/
+        $(function () {
+            $('[data-toggle=tooltip]').tooltip({
+                placement:'right'
+            });
+        });
+        $(".del").click(function () {
+            if (confirm('确认要删除吗')){
+                $(this).parent().parent().remove()
+            }
+            else false
+        })
+        /*删除确认框*/
+       $(function () {
+           $('#users').on('click','a.delete',function () {
+               var $a = $(this);
+               var userId = $a.data('id');
+               /*$.czb_confirm('确认要删除这条数据吗？',userId,function (id) {
+                 console.log(id);
+                 console.log(userId);
+                 $a.parent().parent().remove();
+               });*/
+               $.czb_confirm('确认要删除这条数据吗？',function () {
+                   //console.log(id);
+                   console.log(userId);
+                   $a.parent().parent().remove();
+               });
+           });
+       });
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2">
+      <h4>菜单</h4>
+      <ul id="mainMenu" class="nav nav-pills nav-stacked">
+        <li class="panel">
+
+          <a  data-toggle="collapse" data-parent="#mainMenu" href="#systemMenu">
+            <span class="glyphicon glyphicon-star"></span>
+            系统设置
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+          </a>
+          <ul id="systemMenu" class="nav nav-pills nav-stacked collapse">
+            <li>
+              <a href="#">菜单1</a>
+            </li>
+            <li>
+              <a href="#">菜单3</a>
+            </li>
+            <li>
+              <a href="#">菜单2</a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="panel">
+          <a  data-toggle="collapse" data-parent="#mainMenu" href="#storeMenu">
+            <span class="glyphicon glyphicon-star"></span>
+            仓库管理
+            <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+          </a>
+          <ul id="storeMenu" class="nav nav-pills nav-stacked collapse">
+            <li>
+              <a href="#">菜单4</a>
+            </li>
+            <li>
+              <a href="#">菜单5</a>
+            </li>
+            <li>
+              <a href="#">菜单6</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+    <div class="col-lg-10">
+      <div class="container-fluid">
+        <ol class="breadcrumb">
+          <li><a href="#">首页</a></li>
+          <li><a href="#">系统设置</a></li>
+          <li class="active">用户管理</li>
+        </ol>
+        <div class="page-header">
+          <h1>用户管理<small>编辑和删除用户信息</small></h1>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-barcode"></span> 用户信息
+            <div class="btn-group btn-group-xs pull-right">
+              <button class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> 新增</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div>
+              <label for="search">查询：</label>
+              <input id="search" type="text">
+              <button type="button" class="btn btn-primary">查询</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered table-striped table-hover" id="users">
+              <thead>
+              <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>收入</th>
+                <th>居住地址</th>
+                <th>操作</th>
+              </tr>
+              </thead>
+              <tr>
+                <td>李四</td>
+                <td>男</td>
+                <td>18000</td>
+                <td>福建省福州市仓山区</td>
+                <td>
+                  <a  href="#" data-toggle="modal" data-target="#editUserModal" data-user-id="1"><span class="glyphicon glyphicon-edit"></span></a>
+                  <a class="delete" href="#" data-id="1"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+              </tr>
+              <tr>
+                <td>王五</td>
+                <td>男</td>
+                <td>18000</td>
+                <td>福建省福州市仓山区</td>
+                <td>
+                  <a href="#" ><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUserModal" data-user-id="2"></span></a>
+                  <a class="delete" href="#" data-id="2" href="#" data-toggle="tooltip" data-placement="left" title="删除用户信息"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+              </tr>
+              <tr>
+                <td>赵六</td>
+                <td>男</td>
+                <td>18000</td>
+                <td>福建省福州市仓山区</td>
+                <td>
+                  <a href="#"><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUserModal" data-user-id="3"></span></a>
+                  <a href="#" class="delete" href="#" data-id="3"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+              </tr>
+              <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>18000</td>
+                <td>福建省福州市仓山区</td>
+                <td>
+                  <a href="#"><span class="glyphicon glyphicon-edit" data-toggle="modal" data-target="#editUserModal" data-user-id="4"></span></a>
+                  <a href="#" class="delete" href="#" data-id="4"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+              </tr>
+              <tbody>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-lg-6">总共100条数据，总共20页
+                <!--<div class="well"></div>
+                </div>-->
+              </div>
+              <div class="col-lg-6">
+                <ul class="pagination  pull-right pagination-no-margin">
+                  <li class="disabled"><a href="#">首页</a></li>
+                  <li class="disabled"><a href="#">上一页</a></li>
+                  <li class="active"><a href="#" data-toggle="modal" data-target="#myModal" data-remote="可以引入一个网页">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">下一页</a></li>
+                  <li><a href="#">末页</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="editUserModal" tabindex="-1" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+        <div class="modal-title">修改用户信息</div>
+      </div>
+      <div class="modal-body">
+        <form >
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label>姓名</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label>身份证</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label>性别</label>
+                <div class="radio">
+                  <label class="radio-inline"><input type="radio" value="1" checked>男</label>
+                  <label class="radio-inline"><input type="radio" value="2">女</label>
+                  <label class="radio-inline"><input type="radio" value="0">不告诉你</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+
+                <label >电话号码</label>
+                <input class="form-control" type="text">
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label >姓名</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label >身份证</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+
+<div id="myModal" class="modal fade" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="modal-title">测试</div>
+      </div>
+      <div class="modal-body">
+        <h1>sdflsdflsdlflsdfl</h1>
+      </div>
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

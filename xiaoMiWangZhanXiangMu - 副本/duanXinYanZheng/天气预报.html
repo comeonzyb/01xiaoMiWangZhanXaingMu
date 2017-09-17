@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>天气预报</title>
+    <script src="jquery/jquery.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+
+
+
+                $.ajax({
+                    url: 'http://jisutqybmf.market.alicloudapi.com/weather/query',
+                    /*福州的城市代码*/
+                    /* url: 'http://jisutqybmf.market.alicloudapi.com/weather/query?city=%E5%8D%97%E9%98%B3',*/
+                    /*南阳的城市代码*/
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        city: $('input[type=text]').val()
+                    },
+                    headers: {
+                        Authorization: 'APPCODE 9f1b2eec2e514d08b47898565293dd22'
+                    }
+                }).done(function (data) {
+
+                    var html='';
+                    html+='<p>城市：'+data.result.city+'</p>'
+                        +'<p>日期：'+data.result.date+'</p>'
+                        +'<p>星期几：'+data.result.week+'</p>'
+                        +'<p>天气：'+data.result.weather+'</p>'
+                        +'<p>最低温度：'+data.result.templow+'</p>'
+                        +'<p>最高温度：'+data.result.temphigh+'</p>'
+                        +'<p>风力：'+data.result.windpower+'</p>'
+                        +'<p>风向：'+data.result.winddirect+'</p>'
+                        +'<p>更新时间：'+data.result.updatetime+'</p>'
+
+
+
+                    console.log(data);
+                    $('#display').html(html);
+
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+城市：<input type="text" name="city"><button type="button">确定</button>
+<div id="display"></div>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册第一步</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style>
+
+        body{
+            background-color: rgb(240,240,240);
+        }
+        .wrap{
+            background-color: rgb(255,255,255);
+            width: 870px;
+        }
+        .logo{
+            text-align: center;
+        }
+        .logo img{
+            height: 50px;
+            width: 50px;
+        }
+        h2{
+            text-align: center;
+            margin-top: 40px;
+        }
+        #zhuCe{
+            background-color: #ff6700;
+        }
+    </style>
+    <script src="jquery/jquery.js"></script>
+    <script src="md5.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../app/js/dfrz-store.js"></script>
+    <script>
+        /*老师给春国讲的*/
+        /* $(function () {
+             $.getJSON('country.json', function (data) {
+                 var html = '';
+                 for (category in data) {
+                     html += '<h4>' + category + '</h4>';
+                     html += '<div class="list-group">';
+                     for (var i = 0, len = data[category].length; i < len; i++) {
+                         html += '<a class="list-group-item" href="#">' + data[category][i].C + '</a>'
+                     }
+                     html += '</div>'
+                     console.log(data)
+                 }
+
+                 $('.two').html(html);
+                 $('.one').on('click', 'a', function () {
+                     $('.btn-group button')[0].innerText = $(this)[0].innerText;
+                 });
+             });
+         })*/
+
+
+        $(function () {
+            $('[data-toggle=hover]').parent().on('mouseenter mouseleave',function () {
+                $(this).toggleClass('open');
+            });
+            /*$('[data-toggle=hover]').parent().hover(function () {
+              $(this).addClass('open');
+            },function () {
+              $(this).removeClass('open');
+            });*/
+
+        });
+
+        var carts = [];
+        $(function () {
+            $.getJSON('country.json',function (data) {
+
+                carts = data;
+                var html = '';
+                for (category in data) {
+                    html += '<h4>' + category + '</h4>';
+                    html += '<div class="list-group">';
+                    for (var i = 0, len = data[category].length; i < len; i++) {
+                        html += '<a class="list-group-item" href="#">' + data[category][i].C + '</a>'
+                    }
+                    html += '</div>'
+
+                }
+                $('tbody').html(html);
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div class="wrap container">
+    <div class="logo">
+        <img src="图标2.jpg" alt="">
+    </div>
+    <h2>注册小米账号</h2>
+    <div class="row">
+        <div class="col-lg-offset-4 col-lg-4 col-lg-offset-4 col-md-offset-4 col-md-4 col-md-offset-4 col-sm-offset-4 col-sm-4 col-sm-offset-4">
+            <form>
+                <div class="form-group">
+                    <label>国家/地区</label>
+                    <div class="input-group">
+                        <input id="country" class="form-control" type="text" style="width: 220px">
+                        <div class="dropdown" style="margin-left: 220px">
+                            <button class="btn btn-default dropdown-toggle" href="#" data-toggle="hover"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <table>
+                                    <thead>
+
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <p>成功注册账号后，国家/地区将不能修改</p>
+                </div>
+                <div class="form-group">
+                    <label for="phone_number">手机号码</label><br>
+                    <div class="input-group">
+                          <span class="input-group-btn">
+                          <button class="btn btn-default" style="border-radius: 5px 0 0 5px">
+                          <span>+86</span>
+                          <span class="glyphicon glyphicon-chevron-down"></span>
+                          </button>
+                          </span>
+                    </div>
+                    <div class="input-group" style="margin-left: 67px;margin-top: -34px">
+                        <input type="text" id="phone_number" class="form-control" style="border-radius: 0 5px 5px 0">
+                        <p>输入您的手机号码</p>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-top: -20px">
+                    <label>手机验证码</label>
+                    <div class="input-group">
+                        <input class="form-control" id="yzcode" type="text" placeholder="请输入验证码" style="width: 140px">
+                        <span class="input-group-btn">
+                             <input class="btn btn-default" type="button" id="btn" value="免费获取验证码" onclick="settime(this)" /></a>
+                        </span>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="button" class="btn btn-block" id="zhuCe"><a style="text-decoration: none" href="#">立即注册</a></button>
+                </div>
+            </form>
+            <p class="msg">
+                注册帐号即表示您同意并愿意遵守小米 <a href="http://www.miui.com/res/doc/eula/cn.html" class="inspect_link agreement_link" title="用户协议" target="_blank">用户协议</a>和<a href="http://www.miui.com/res/doc/privacy/cn.html" class="inspect_link privacy_link" title=" 隐私政策 " target="_blank"> 隐私政策 </a>
+            </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    /*  获取验证码*/
+    var random=0;
+    $('#btn').on('click',function(){
+
+        var tel=$('#phone_number').val();
+
+        random=four(Math.round(Math.random()*9999));
+        console.log(random.toString());
+        var param = {
+            no:random.toString()
+        };
+        $.ajax({
+            url:'http://sms.market.alicloudapi.com/singleSendSms',
+            type:'GET',
+            dataType:'json',
+            data:{
+                ParamString:JSON.stringify(param),
+                RecNum:tel,
+                SignName:'虎神贾克虎',
+                TemplateCode:'SMS_94715049'
+            },
+            headers:{
+                Authorization:'APPCODE 9f1b2eec2e514d08b47898565293dd22'
+            }
+        }).done(function(data){
+            console.log('ggggggg',data)
+        });
+        console.log(random);
+
+        $('#zhuCe').click(function () {
+            if(random===$('#yzcode').val()){
+                window.location.href = '注册第二步.html';
+                var account = {
+                    phone:$('#phone_number').val(),
+                    country:$('#country').val()
+
+                };
+                store.update('userkey',account);
+                return false;
+            }else{
+                $('#zhuCe').click(function () {
+                    alert('注册失败');
+                })
+            }
+        })
+    });
+
+
+    function four(num){
+        var str=num.toString();
+        var len=str.length;
+        if(len<4){
+            for(var i=0;i<4-len;i++){
+                str='0'+str;
+            }
+        }
+        return str;
+    }
+
+
+    /* 60s倒计时*/
+    var countdown=60;
+    function settime(val) {
+        if (countdown == 0) {
+            val.removeAttribute("disabled");
+            val.value="免费获取验证码";
+            countdown = 60;
+        } else {
+            val.setAttribute("disabled", true);
+            val.value="重新发送(" + countdown + ")";
+            countdown--;
+        }
+        setTimeout(function() {
+            settime(val)
+        },1000)
+    }
+
+
+
+    var phone_info = document.getElementById('phone_number');
+    var password_info = document.getElementById('password');
+    var password_confirm_info = document.getElementById('password_confirm');
+    /*  计算输入的字符长度*/
+    function getLength(str) {
+        var countLength = 0;
+        for (var i = 0; i < str.length; i++) {
+            char_code = str.charCodeAt(i); //取每一个字符的code值
+            if (char_code >= 0 && char_code <= 128) {
+                countLength += 1; //如果非汉字就自加1
+            } else {
+                countLength += 2; //如果非汉字以外就自加2
+            }
+        }
+        return countLength;
+    }
+
+    //获取焦点和失去焦点
+    (function showHint(){
+        for(var i=0,j=document.getElementsByTagName("input");i<j.length;i++){
+            j[i].addEventListener("focus",function(){//表单获取焦点时获得提示
+               /* this.nextElementSibling.style.display = "block";*/
+            },false)
+            j[i].addEventListener("blur",function(){//表单失去焦点时，显示验证结果
+                validatePhone();
+            },false)
+        }
+    })();
+
+    //验证手机号码
+    var validatePhone = function(){
+        if(phone_info.value != ""){
+            var filter = /^1[3|4|5|8][0-9]\d{8}$/i;
+            if(filter.test(phone_info.value)){
+                phone_info.nextElementSibling.innerHTML = "手机格式正确";
+                phone_info.nextElementSibling.style.color = "#0f0";
+                phone_info.style.border = "2px solid #0f0";
+            }else{
+                phone_info.nextElementSibling.innerHTML = "手机格式错误";
+                phone_info.nextElementSibling.style.color = "#f00";
+                phone_info.style.border = "2px solid #f00";
+            }
+        }else{
+            phone_info.nextElementSibling.innerHTML = "输入您的手机号码";
+            phone_info.nextElementSibling.style.color = "#BBB";
+            phone_info.style.border = "1px solid #888";
+        }
+    }
+</script>
+
+</body>
+</html>

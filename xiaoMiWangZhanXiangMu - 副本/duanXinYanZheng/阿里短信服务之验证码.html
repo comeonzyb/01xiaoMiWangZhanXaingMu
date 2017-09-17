@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>短信验证</title>
+    <script src="jquery/jquery.js"></script>
+    <script src="md5.js"></script>
+    <script>
+        $(function () {
+            $('button').click(function () {
+                $.ajax({
+                    url: 'http://sms.market.alicloudapi.com/singleSendSms',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                    /*    'ParamString' => '{"no":"123456"}',
+                    'RecNum' => '15880361635',
+                    'SignName' =>'虎神贾克虎',
+                    'TemplateCode' => ''SMS_94715049*/
+                        ParamString:$('.shabi1').val(),
+                        RecNum:$('.shabi2').val(),
+                        SignName:$('.shabi3').val(),
+                        TemplateCode:$('.shabi4').val()
+                    },
+                    headers: {
+                        Authorization: 'APPCODE 9f1b2eec2e514d08b47898565293dd22'
+                    }
+                }).done(function (data) {
+                    console.log(data);
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<form action="#">
+    ParamString:<input type="text" name="city" class="shabi1">
+    RecNum:<input class="shabi2" type="text" name="city">
+    SignName:<input class="shabi3" type="text" name="city">
+    TemplateCode:<input class="shabi4" type="text" name="city">
+    <button type="button">确定</button>
+</form>
+</body>
+</html>

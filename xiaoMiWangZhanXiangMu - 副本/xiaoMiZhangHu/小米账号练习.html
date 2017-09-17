@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米账号界面</title>
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
+    <style>
+        .miHeader{
+            margin-top: 50px;
+        }
+        .downUp{
+            margin-top: 20px;
+        }
+        .miLogo{
+            margin-left: 90px;
+        }
+        .mainContent {
+            margin-top: 50px;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            display: inline-block;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+    </style>
+    <script src="jquery/jquery.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container miHeader">
+    <a style="text-decoration: none;position: absolute;left: 250px;" href="#"><h4>小米账号</h4></a>
+
+    <div class="row" style="margin-top: -10px">
+        <div class="col-lg-6">
+            <a href="#" class="miLogo">
+                <img src="image/小米logo.png" alt="" width="50px" height="50px">
+            </a>
+        </div>
+        <div class="col-lg-5 downUp">
+            <a style="text-decoration: none" href="../dengLu/登录.html" class="pull-right">退出</a>
+        </div>
+    </div>
+</div>
+<div class="container mainContent">
+   <div class="row">
+    <div class="col-lg-offset-1 col-lg-10">
+    <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#one" aria-controls="home" role="tab" data-toggle="tab">账户安全</a></li>
+        <li role="presentation"><a href="#two" aria-controls="profile" role="tab" data-toggle="tab">个人信息</a></li>
+        <li role="presentation"><a href="#three" aria-controls="messages" role="tab" data-toggle="tab">小米服务</a></li>
+      </ul>
+
+    <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="one">
+            <div class="row">
+                <ul>
+                    <li> <h3>安全等级</h3></li>
+                    <li><h3 style="color: green">100</h3></li>
+                    <li>  <p>分</p></li>
+                    <li style="margin-left: 500px"><p style="color: green">太棒了，风险已降至最低</p></li>
+                </ul>
+                <div class="progress" style="width: 500px;margin-left: 200px;margin-top: -40px">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                        100%<span class="glyphicon glyphicon-chevron-right pull-right" style="margin-top: 2px"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p style="border-top: 1px solid #CCCCCC;width: 940px;margin-left: 20px"></p>
+            </div>
+            <div class="container" style="margin-top: 10px">
+               <img src="image/账号密码-01.png" alt="" width="35px" height="35px">
+               <h4 style="margin-left: 50px;margin-top: -33px">账号密码</h4>
+               <p style="margin-left: 50px;margin-top: -10px">用于保护账户信息和登录安全</p>
+               <button data-toggle="modal" data-target="#editUserModal" data-user-id="1" type="button" class="form-control" style="width: 100px;margin-left: 800px;margin-top: -50px">修改</button>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <p style="border-top: 1px solid #CCCCCC;width: 940px;margin-left: 20px"></p>
+            </div>
+            <div class="container" style="margin-top: 10px">
+                <img src="image/邮箱.png" alt="" width="35px" height="35px">
+                <h4 style="margin-left: 50px;margin-top: -33px">安全邮箱12***@q*.com</h4>
+                <p style="margin-left: 50px;margin-top: -10px">用于登录小米账号，重置密码</p>
+                <button type="button" class="form-control" style="width: 100px;margin-left: 800px;margin-top: -50px">修改</button>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <p style="border-top: 1px solid #CCCCCC;width: 940px;margin-left: 20px"></p>
+            </div>
+            <div class="container" style="margin-top: 10px">
+                <img src="image/手机.png" alt="" width="35px" height="35px">
+                <h4 style="margin-left: 50px;margin-top: -33px">安全手机15***35</h4>
+                <p style="margin-left: 50px;margin-top: -10px">用于登录小米账号，重置密码</p>
+                <button type="button" class="form-control" style="width: 100px;margin-left: 800px;margin-top: -50px">修改</button>
+                <button type="button" class="form-control" style="width: 100px;margin-left: 680px;margin-top: -33px">添加</button>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <p style="border-top: 1px solid #CCCCCC;width: 940px;margin-left: 20px"></p>
+            </div>
+            <div class="container" style="margin-top: 10px">
+                <img src="image/密保问题.png" alt="" width="35px" height="35px">
+                <h4 style="margin-left: 50px;margin-top: -33px">密保问题</h4>
+                <p style="margin-left: 50px;margin-top: -10px">密保问题用于重置密码和安全验证</p>
+                <button type="button" class="form-control" style="width: 100px;margin-left: 800px;margin-top: -50px">修改</button>
+            </div>
+
+            <div class="row" style="margin-top: 100px">
+                <h3 style="margin-left: 30px">推荐使用</h3>
+                <p style="border-top: 1px solid #CCCCCC;width: 940px;margin-left: 20px"></p>
+            </div>
+            <div class="container" style="margin-top: 10px">
+                <img src="image/安全令牌.png" alt="" width="35px" height="35px">
+                <h4 style="margin-left: 50px;margin-top: -33px">小米安全令牌</h4>
+                <p style="margin-left: 50px;margin-top: -10px">在非信任设备上登录需要二次验证，防止他人恶意登录</p>
+                <button type="button" class="form-control" style="width: 100px;margin-left: 800px;margin-top: -50px">开启</button>
+            </div>
+            <div style="position: absolute;top: 0px;margin-left: 680px">
+            <p>张三</p>
+            <p style="margin-top: -10px">12345678912</p>
+            </div>
+            <div style="height: 90px;width: 90px;border-radius: 50%;border: 1px solid black;position: absolute;top: -25px;left: 800px">
+                <div class="center-block" style="margin-top: 4px;height: 80px;width: 80px;border-radius: 80%;border: 1px solid black;background-color: #CCCCCC">
+                    <img class="center-block" src="image/头像%20(2).png" alt="" height="80px" width="80px">
+                </div>
+            </div>
+            <div style="margin-top: -563px;margin-left: 20px">
+                <div style="border-left: 1px solid #CCCCCC;height: 370px;margin-left: -20px"></div>
+                <div style="border-left: 1px solid #CCCCCC;height: 370px;margin-left: 930px;margin-top: -370px"></div>
+                <div style="border-top: 1px solid #CCCCCC;width: 950px;margin-left: -20px"></div>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="two">
+            <div style="position: absolute;top: 0px;margin-left: 680px">
+                <p>张三</p>
+                <p style="margin-top: -10px">12345678912</p>
+            </div>
+            <div style="height: 90px;width: 90px;border-radius: 50%;border: 1px solid black;position: absolute;top: -25px;left: 800px">
+                <div class="center-block" style="margin-top: 4px;height: 80px;width: 80px;border-radius: 80%;border: 1px solid black;background-color: #CCCCCC">
+                    <img class="center-block" src="image/头像%20(2).png" alt="" height="80px" width="80px">
+                </div>
+            </div>
+            <div class="container">
+                <div style="border-left: 1px solid #CCCCCC;height: 420px;margin-left: -17px"></div>
+                <div style="border-left: 1px solid #CCCCCC;height: 420px;margin-left: 930px;margin-top: -420px"></div>
+                <div style="border-top: 1px solid #CCCCCC;width: 950px;margin-left: -20px"></div>
+                <div style="height: 90px;width: 90px;border-radius: 50%;border: 1px solid black;margin-left: 100px;margin-top: -330px">
+                    <div class="center-block" style="margin-top: 4px;height: 80px;width: 80px;border-radius: 80%;border: 1px solid black;background-color: #CCCCCC">
+                        <img class="center-block" src="image/头像%20(2).png" alt="" height="80px" width="80px">
+                    </div>
+                </div>
+                <a style="margin-left: 115px;color: #4a90e3;">设置头像</a>
+                <div style="width: 30px;height: 30px;border: 1px solid black;border-radius: 50%;background-color: #666;margin-top: -85px;margin-left: 130px">
+                    <a class="text-center" href="#"><img src="image/笔.png" alt="" height="22px" width="22px" style="margin-left: 3px;margin-top: 3px"></a>
+                </div>
+
+            </div>
+            <div class="container" style="margin-top: -100px">
+                <div class="col-lg-offset-3 col-lg-4">
+                    <h4>基础资料</h4>
+                </div>
+                <div class="col-lg-offset-7 col-lg-4">
+                    <img  src="image/笔.png" alt="" height="22px" width="22px" style="margin-top: -60px;margin-left: 135px">
+                </div>
+                <p id="personInfo" style="margin-top: 10px;margin-left: 840px" data-toggle="modal" data-target="#myModal" data-user-id="1"><a href="#">编辑</a></p>
+            </div>
+           <div class="container">
+               <div style="border-top: 1px solid #CCCCCC;width: 600px;margin-left: 300px;margin-top: -20px"></div>
+               <div style="margin-left: 300px;margin-top: 20px">姓名：</div>
+               <div style="border-top: 1px solid #CCCCCC;width: 600px;margin-left: 300px;margin-top: 20px"></div>
+               <div style="margin-left: 300px;margin-top: 20px">性别：</div>
+               <div style="border-top: 1px solid #CCCCCC;width: 600px;margin-left: 300px;margin-top: 20px"></div>
+           </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="three">
+            <div style="position: absolute;top: 0px;margin-left: 680px">
+                <p>张三</p>
+                <p style="margin-top: -10px">12345678912</p>
+            </div>
+            <div style="height: 90px;width: 90px;border-radius: 50%;border: 1px solid black;position: absolute;top: -25px;left: 800px">
+                <div class="center-block" style="margin-top: 4px;height: 80px;width: 80px;border-radius: 80%;border: 1px solid black;background-color: #CCCCCC">
+                    <img class="center-block" src="image/头像%20(2).png" alt="" height="80px" width="80px">
+                </div>
+            </div>
+            <br>
+            <h3>您的帐号可以登录以下服务</h3>
+            <div style="border-top: 1px solid #CCCCCC;width: 950px"></div>
+            <div class="container" style="margin-top: 30px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <a href="../xiaoMiWangZhanShouYe/小米网站练习登录之后.html">
+                        <img src="image/精灵图1.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        </a>
+                        <a href="" style="margin-left: 20px">小米官网</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">小米手机，红米手机，小米平板和小米电视官方正品销售网</p>
+                    </div>
+                    <div class="col-lg-6" style="margin-left: -130px">
+                        <img src="image/精灵图2.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">MIUI</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">发烧友必刷的Android ROM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 15px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="image/精灵图3.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">云服务</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">随时随地，管理你的所有设备和数据</p>
+                    </div>
+                    <div class="col-lg-6" style="margin-left: -130px">
+                        <img src="image/精灵图4.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">米币中心</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">轻松安心充值，乐享小米服务</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 15px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="image/精灵图5.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">应用商店</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">发现最新最热最好玩的应用</p>
+                    </div>
+                    <div class="col-lg-6" style="margin-left: -130px">
+                        <img src="image/精灵图6.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">主题商店</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">手机百变换装，从此与众不同</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 15px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="image/精灵图7.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">多看阅读</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">海量畅销电子书免费试读，数百万读者阅读首选</p>
+                    </div>
+                    <div class="col-lg-6" style="margin-left: -130px">
+                        <img src="image/精灵图8.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">米聊</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">轻松社交，米粉乐园</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 15px">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <img src="image/精灵图9.png" alt="" width="50px" height="50px" style="position: absolute;left:-35px;top: -10px;margin-left: 20px">
+                        <a href="" style="margin-left: 20px">小米社区</a>
+                        <p style="margin-top: -5px;margin-left: 20px;color: #CCCCCC">小米手机官方论坛</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+   </div>
+</div>
+<!--修改密码模态框-->
+<div id="editUserModal" tabindex="-1" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+                <div class="modal-title">修改密码</div>
+            </div>
+            <div class="modal-body">
+                <form >
+                    <div class="form-group">
+                        <label for="password">原密码</label><br>
+                        <input type="password" id="password1" class="form-control">
+                        <p>请输入密码</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">新密码</label><br>
+                        <input type="password" id="password" class="form-control">
+                        <p>请输入密码</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirm">密码确认</label><br>
+                        <input type="password" id="password_confirm" class="form-control">
+                        <p>再次输入相同的密码</p>
+                    </div>
+                    <div class="form-group" style="margin-top: -20px">
+                        <label>手机验证码</label>
+                        <div class="input-group">
+                            <input class="form-control" type="number" placeholder="请输入验证码">
+                            <span class="input-group-btn">
+                        <button class="btn btn-default">
+                        <span>发送</span>
+                        </button>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-warning btn-block">确定</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-default btn-block ">取消</button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<!--编辑个人信息模态框-->
+<div id="myModal" tabindex="-1" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+                <div class="modal-title">编辑基础资料</div>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">姓名：</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail3" placeholder="请输入你的名字">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">生日：</label>
+                        <div class="col-sm-10" style="margin-top: 7px">
+                            <div class="container row">
+                                <div class="col-sm-1">
+                                    <select>
+                                        <option>1996年</option>
+                                        <option>1997</option>
+                                        <option>1998</option>
+                                        <option>1999</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <select>
+                                        <option>1月</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-1">
+                                    <select>
+                                        <option>1日</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名：</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">女
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-warning btn-block">保存</button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-default btn-block " class="close" data-dismiss="modal">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    var phone_info = document.getElementById('phone_number');
+    var password_info = document.getElementById('password');
+    var password_info1 = document.getElementById('password1');
+    var password_confirm_info = document.getElementById('password_confirm');
+    /* 计算输入的字符长度
+     function getLength(str) {
+         var countLength = 0;
+         for (var i = 0; i < str.length; i++) {
+             char_code = str.charCodeAt(i); //取每一个字符的code值
+             if (char_code >= 0 && char_code <= 128) {
+                 countLength += 1; //如果非汉字就自加1
+             } else {
+                 countLength += 2; //如果非汉字以外就自加2
+             }
+         }
+         return countLength;
+     }*/
+
+    //获取焦点和失去焦点
+    (function showHint(){
+        for(var i=0,j=document.getElementsByTagName("input");i<j.length;i++){
+            j[i].addEventListener("focus",function(){//表单获取焦点时获得提示
+                this.nextElementSibling.style.display = "block";
+            },false)
+            j[i].addEventListener("blur",function(){//表单失去焦点时，显示验证结果
+                /* validateName();
+                 validatePassword();
+                 validateEmail();*/
+                validatePassword3();
+                validatePassword();
+                validatePassword2();
+                validatePhone();
+            },false)
+        }
+    })();
+    //原密码
+    var validatePassword3 = function(){
+        if (password_info1.value == "") { //验证是否为空
+            password_info1.nextElementSibling.innerHTML = "必填，长度为8~16个字符";
+            password_info1.nextElementSibling.style.color = "#BBB";
+            password_info1.style.border = "1px solid #888";
+            return;
+        } else if ((password_info1.value.length) < 8 || (password_info.value.length) > 16) { //验证长度是否符合标准
+            password_info1.nextElementSibling.innerHTML = "长度只能为为8~16个字符";
+            password_info1.nextElementSibling.style.color = "#f00";
+            password_info1.style.border = "2px solid #f00";
+            return;
+        } else {
+            password_info1.nextElementSibling.innerHTML = "密码可用";
+            password_info1.nextElementSibling.style.color = "#0f0";
+            password_info1.style.border = "2px solid #0f0";
+            return password_info1.value;
+        }
+
+        if(password_info1.value!=""){
+            password_info1.nextElementSibling.innerHTML = "密码可用";
+            password_info1.nextElementSibling.style.color = "#0f0";
+            password_info1.style.border = "2px solid #0f0"
+        }else{
+            password_info1.nextElementSibling.innerHTML = "请输入密码";
+            password_info1.nextElementSibling.style.color = "#BBBBBB";
+            password_info1.style.border = "1px solid #888";
+        }
+    }
+    //验证密码
+    var validatePassword = function(){
+        if (password_info.value == "") { //验证是否为空
+            password_info.nextElementSibling.innerHTML = "必填，长度为8~16个字符";
+            password_info.nextElementSibling.style.color = "#BBB";
+            password_info.style.border = "1px solid #888";
+            return;
+        } else if ((password_info.value.length) < 8 || (password_info.value.length) > 16) { //验证长度是否符合标准
+            password_info.nextElementSibling.innerHTML = "长度只能为为8~16个字符";
+            password_info.nextElementSibling.style.color = "#f00";
+            password_info.style.border = "2px solid #f00";
+            return;
+        } else {
+            password_info.nextElementSibling.innerHTML = "密码可用";
+            password_info.nextElementSibling.style.color = "#0f0";
+            password_info.style.border = "2px solid #0f0";
+            return password_info.value;
+        }
+
+        if(password_info.value!=""){
+            password_info.nextElementSibling.innerHTML = "密码可用";
+            password_info.nextElementSibling.style.color = "#0f0";
+            password_info.style.border = "2px solid #0f0"
+        }else{
+            password_info.nextElementSibling.innerHTML = "请输入密码";
+            password_info.nextElementSibling.style.color = "#BBBBBB";
+            password_info.style.border = "1px solid #888";
+        }
+    }
+    //验证密码是否一致
+    var validatePassword2=function () {
+        if(password_confirm_info.value!=""){
+            if(password_info.value === password_confirm_info.value){
+                password_confirm_info.nextElementSibling.innerHTML = "密码输入一致";
+                password_confirm_info.nextElementSibling.style.color = "#0f0";
+                password_confirm_info.style.border = "2px solid #0f0";
+            }else{
+                password_confirm_info.nextElementSibling.innerHTML = "密码输入不一致";
+                password_confirm_info.nextElementSibling.style.color = "#f00";
+                password_confirm_info.style.border = "2px solid #f00";
+            }
+        }
+        else{
+            password_confirm_info.nextElementSibling.innerHTML = "再次输入相同的密码";
+            password_confirm_info.nextElementSibling.style.color = "#bbb";
+            password_confirm_info.style.border = "1px solid #888";
+        }
+    }
+    //验证手机号码
+    var validatePhone = function(){
+        if(phone_info.value != ""){
+            var filter = /^1[3|4|5|8][0-9]\d{8}$/i;
+            if(filter.test(phone_info.value)){
+                phone_info.nextElementSibling.innerHTML = "手机格式正确";
+                phone_info.nextElementSibling.style.color = "#0f0";
+                phone_info.style.border = "2px solid #0f0";
+            }else{
+                phone_info.nextElementSibling.innerHTML = "手机格式错误";
+                phone_info.nextElementSibling.style.color = "#f00";
+                phone_info.style.border = "2px solid #f00";
+            }
+        }else{
+            phone_info.nextElementSibling.innerHTML = "输入您的手机号码";
+            phone_info.nextElementSibling.style.color = "#BBB";
+            phone_info.style.border = "1px solid #888";
+        }
+    }
+
+</script>
+</body>
+</html>
